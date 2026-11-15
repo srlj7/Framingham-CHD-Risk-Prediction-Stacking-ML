@@ -1,9 +1,5 @@
 # 🫀 An End-to-End Machine Learning Framework for 10-Year Coronary Heart Disease (CHD) Risk Prediction
 
-[![Python 3.11+](https://img.shields.io/badge/Python-3.11%2B-blue.svg)](https://www.python.org/)
-[![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-1.3%2B-orange.svg)](https://scikit-learn.org/)
-[![Status](https://img.shields.io/badge/Status-Completed%20%26%20Published-success.svg)]()
-[![Institution](https://img.shields.io/badge/Al--Maaqal%20University-AI%20Engineering-1e3a8a.svg)]()
 
 > **Full Research Paper & Experimental Codebase**  
 > **Authors:** Saif Asaad Naeem, Mustafa Saleh Jodah, Hussein Ali Muhsen  
@@ -12,13 +8,13 @@
 
 ---
 
-## 📌 Executive Summary
+##  Executive Summary
 
 Coronary Heart Disease (CHD) is the leading cause of mortality worldwide. Predicting 10-year CHD risk from routine clinical and laboratory records is severely challenged by **conditional missing values (13.73%)**, **extreme right-tailed pathological skewness (glucose skew = +6.40)**, **severe multicollinearity ($r = 0.784$)**, and an acute **5.58 : 1 target class imbalance (84.80% Healthy vs. 15.20% CHD)** that causes standard baseline classifiers to suffer a catastrophic collapse in sensitivity (**Recall = 6.21%**).
 
 Rather than relying on arbitrary, single-tool choices, this repository implements a rigorous **Multi-Algorithm Comparative Benchmarking Framework** on the **Framingham Heart Study** cohort ($N = 4,238$ patients, $16$ attributes), systematically evaluating **5 competing algorithms at every pipeline stage** (31 distinct operators in total) to select the mathematically and clinically optimal pipeline.
 
-### 🏆 Key Achievements at a Glance
+###  Key Achievements at a Glance
 * **Test Recall (Sensitivity):** **98.87%** (*703 out of 711 true CHD patients identified; only 8 missed*)
 * **Test Precision (PPV):** **98.18%** (*only 13 false alarms out of 519 healthy controls*)
 * **Test F1-Score:** **98.53%** (*5-Fold Stratified CV F1 = 98.22%*)
@@ -27,7 +23,7 @@ Rather than relying on arbitrary, single-tool choices, this repository implement
 
 ---
 
-## 🏗️ System Architecture & Six-Stage Pipeline
+##  System Architecture & Six-Stage Pipeline
 
 ![System Architecture](figures/fig1_system_architecture.png)
 
@@ -50,16 +46,16 @@ Guided by cardiovascular pathophysiology, 10 clinical interaction markers were s
 
 | # | Engineered Feature | Formula | Target Correlation ($r$) | RFE Retained? | Clinical & Physiological Meaning |
 | :-: | :--- | :--- | :---: | :---: | :--- |
-| 1 | **`age_sysBP_index`** | $(\text{age} \times \text{sysBP}) / 100$ | **+0.2662 (Rank #1)** | ✅ Yes | Cumulative vascular aging & arterial wall stress index |
-| 2 | **`age_glucose_index`** | $(\text{age} \times \text{glucose}) / 100$ | **+0.2101** | ✅ Yes | Age-compounded glycemic endothelial damage marker |
-| 3 | **`framingham_risk_count`** | $\sum \text{Clinical Risk Flags}$ | **+0.2098** | ❌ Pruned | Syndromic cardiometabolic risk factor burden |
-| 4 | **`pulse_pressure`** | $\text{sysBP} - \text{diaBP}$ | **+0.2068** | ✅ Yes | Direct clinical proxy for large-artery & aortic stiffness |
-| 5 | **`log_gluc_sysBP`** | $\ln(1+\text{gluc}) \cdot \ln(1+\text{sysBP})$ | **+0.1985** | ✅ Yes | Non-linear log interaction between hyperglycemia & hypertension |
-| 6 | **`MAP`** | $\text{diaBP} + (\text{sysBP} - \text{diaBP})/3$ | **+0.1900** | ✅ Yes | Mean arterial pressure governing coronary organ perfusion |
-| 7 | **`rate_pressure_product`** | $(\text{sysBP} \times \text{heartRate})/1000$ | **+0.1552** | ✅ Yes | Myocardial workload & oxygen demand ($MVO_2$) |
-| 8 | **`sys_dia_ratio`** | $\text{sysBP} / (\text{diaBP} + \epsilon)$ | **+0.1445** | ✅ Yes | Systolic-to-diastolic hemodynamic balance ratio |
-| 9 | **`bmi_chol_index`** | $(\text{BMI} \times \text{totChol}) / 1000$ | **+0.1056** | ✅ Yes | Synergistic dyslipidemia-obesity atherogenic index |
-| 10 | **`pack_years_proxy`** | $\text{cigsPerDay} \times (\text{age}-18)/20$ | **+0.1048** | ❌ Pruned | Estimated lifetime cumulative smoking pack-years exposure |
+| 1 | **`age_sysBP_index`** | $(\text{age} \times \text{sysBP}) / 100$ | **+0.2662 (Rank #1)** |  Yes | Cumulative vascular aging & arterial wall stress index |
+| 2 | **`age_glucose_index`** | $(\text{age} \times \text{glucose}) / 100$ | **+0.2101** |  Yes | Age-compounded glycemic endothelial damage marker |
+| 3 | **`framingham_risk_count`** | $\sum \text{Clinical Risk Flags}$ | **+0.2098** |  Pruned | Syndromic cardiometabolic risk factor burden |
+| 4 | **`pulse_pressure`** | $\text{sysBP} - \text{diaBP}$ | **+0.2068** |  Yes | Direct clinical proxy for large-artery & aortic stiffness |
+| 5 | **`log_gluc_sysBP`** | $\ln(1+\text{gluc}) \cdot \ln(1+\text{sysBP})$ | **+0.1985** |  Yes | Non-linear log interaction between hyperglycemia & hypertension |
+| 6 | **`MAP`** | $\text{diaBP} + (\text{sysBP} - \text{diaBP})/3$ | **+0.1900** |  Yes | Mean arterial pressure governing coronary organ perfusion |
+| 7 | **`rate_pressure_product`** | $(\text{sysBP} \times \text{heartRate})/1000$ | **+0.1552** |  Yes | Myocardial workload & oxygen demand ($MVO_2$) |
+| 8 | **`sys_dia_ratio`** | $\text{sysBP} / (\text{diaBP} + \epsilon)$ | **+0.1445** |  Yes | Systolic-to-diastolic hemodynamic balance ratio |
+| 9 | **`bmi_chol_index`** | $(\text{BMI} \times \text{totChol}) / 1000$ | **+0.1056** |  Yes | Synergistic dyslipidemia-obesity atherogenic index |
+| 10 | **`pack_years_proxy`** | $\text{cigsPerDay} \times (\text{age}-18)/20$ | **+0.1048** |  Pruned | Estimated lifetime cumulative smoking pack-years exposure |
 
 ---
 
