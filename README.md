@@ -1,4 +1,4 @@
-# 🫀 An End-to-End Machine Learning Framework for 10-Year Coronary Heart Disease (CHD) Risk Prediction
+#  An End-to-End Machine Learning Framework for 10-Year Coronary Heart Disease (CHD) Risk Prediction
 
 
 > **Full Research Paper & Experimental Codebase**  
@@ -40,7 +40,7 @@ Rather than relying on arbitrary, single-tool choices, this repository implement
 
 ---
 
-## 🧬 Engineered Cardiovascular & Hemodynamic Features
+##  Engineered Cardiovascular & Hemodynamic Features
 
 Guided by cardiovascular pathophysiology, 10 clinical interaction markers were synthesized from the 15 raw attributes:
 
@@ -59,7 +59,7 @@ Guided by cardiovascular pathophysiology, 10 clinical interaction markers were s
 
 ---
 
-## 📊 Final Master Leaderboard (5-Fold Stratified CV & Unseen Test Set)
+##  Final Master Leaderboard (5-Fold Stratified CV & Unseen Test Set)
 
 Each classifier underwent Stage-1 continuous exploration via **`RandomizedSearchCV ()`** (`scipy.stats.randint`, `uniform`, `loguniform`) followed by Stage-2 exhaustive exploitation via **`GridSearchCV []`** optimizing F1-score under 5-Fold Stratified Cross-Validation:
 
@@ -75,7 +75,7 @@ Each classifier underwent Stage-1 continuous exploration via **`RandomizedSearch
 
 ---
 
-## 🚀 Getting Started & Reproducibility
+##  Getting Started & Reproducibility
 
 ### 1. Clone the Repository
 ```bash
